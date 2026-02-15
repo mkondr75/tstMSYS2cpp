@@ -1,0 +1,3 @@
+Your text here
+echo "Your text here" >> note.txt - append text line to file 
+more note.txt - show in console content of file
