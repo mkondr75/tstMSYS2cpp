@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vosk"
+version = "0.3.47"
+description = "Vosk speech recognition toolkit (Custom UCRT64 Build by maxko)"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "maxko"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+]
+
+[tool.setuptools]
+packages = ["vosk"]
+
+[tool.setuptools.package-data]
+vosk = ["*.dll"]

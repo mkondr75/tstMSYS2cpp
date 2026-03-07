@@ -1,0 +1,234 @@
+
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-den-graph.h:28,
+                 from chain-den-graph.cc:21:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-den-graph.h:30:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-denominator.h:28,
+                 from chain-denominator.cc:21:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-denominator.h:30:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-generic-numerator.h:31,
+                 from chain-generic-numerator.cc:21:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-generic-numerator.h:33:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-numerator.h:28,
+                 from chain-numerator.cc:21:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-numerator.h:30:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-supervision.h:28,
+                 from chain-supervision.cc:20:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/lat/kaldi-lattice.h:24,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-supervision.h:30:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-training.h:28,
+                 from chain-training.cc:21:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/chain-training.h:30:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/language-model.h:27,
+                 from language-model.cc:22:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/fstext-lib.h:22,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/chain/language-model.h:29:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-math.h:33,
+                 from arpa-file-parser.cc:26:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: warning: 'KALDI_MEMALIGN' redefined
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-error.h:35,
+                 from arpa-file-parser.cc:25:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: note: this is the location of the previous definition
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from arpa-file-parser.cc:21:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-math.h:33,
+                 from arpa-lm-compiler.cc:27:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/lm/arpa-lm-compiler.h:24,
+                 from arpa-lm-compiler.cc:28:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-math.h:33,
+                 from const-arpa-lm.cc:25:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/deterministic-fst.h:56,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/lm/const-arpa-lm.h:27,
+                 from const-arpa-lm.cc:27:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/lm/kaldi-rnnlm.h:26,
+                 from kaldi-rnnlm.cc:22:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/rational.h:15,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/closure.h:13,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/fstlib.h:41,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/fstext/deterministic-fst.h:56,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/lm/kaldi-rnnlm.h:27:
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h: In member function 'bool fst::internal::ReplaceFstImpl<Arc, StateTable, CacheStore>::ComputeArc(const StateTuple&, const Arc&, Arc*, uint32)':
+C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/include/fst/replace.h:804:32: warning: expected 'template' keyword before dependent template name [-Wmissing-template-keyword]
+  804 |     if (arc.olabel == 0 || arc.olabel < *nonterminal_set_.begin() ||
+      |                                ^~~~~~
+      |                                template
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:35,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/util/stl-utils.h:33,
+                 from C:/msys64/home/maxko/dev/vscprj/kaldi/src/lm/mikolov-rnnlm-lib.h:57,
+                 from mikolov-rnnlm-lib.cc:57:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-utils.h:68:9: warning: 'KALDI_MEMALIGN' redefined
+   68 | #define KALDI_MEMALIGN(align, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~
+In file included from C:/msys64/home/maxko/dev/vscprj/kaldi/src/base/kaldi-common.h:23:
+C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi-win32.h:17:9: note: this is the location of the previous definition
+   17 | #define KALDI_MEMALIGN(alignment, size, pp_orig) \
+      |         ^~~~~~~~~~~~~~

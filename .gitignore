@@ -1,7 +1,43 @@
+#*.o
+#*.a
+#.vscode/
+#build/
+#*.log
+#.audit/
+#artifacts/
+
+# --- Компиляция C++ ---
 *.o
 *.a
+*.exe
+*.dll
+
+# --- IDE и логи ---
 .vscode/
-build/
-*.log
+#*.log
 .audit/
+
+# --- Артефакты и релизы ---
 artifacts/
+*.zip
+*.whl
+
+# --- Python Build & Venv ---
+# Игнорируем папку сборки пакета целиком, 
+# НО если ты хочешь хранить там скрипты (pyproject.toml, __init__.py), 
+# то лучше игнорировать только подпапки внутри неё:
+python_build/dist/
+python_build/build/
+python_build/*.egg-info/
+python_build/vosk/*.dll
+
+# Игнорируем виртуальные окружения для тестов
+venv*/
+__pycache__/
+.pytest_cache/
+
+# Твоя папка для работ по сборке (если там только временные файлы)
+# Если в python_build лежат важные pyproject.toml, НЕ игнорируй папку целиком.
+# Поэтому добавим только временные части:
+build/
+dist/
