@@ -1,3 +1,32 @@
+# MaxWinUCRT_kaldi_Vosk_dll
+
+A portable, ready-to-use build of **Vosk-API** for Windows 10/11, optimized for the **UCRT64** (Universal C Runtime) environment.
+
+## 🚀 Key Features
+* **Portable:** Works directly from Windows CMD/PowerShell without requiring a full MSYS2 installation.
+* **UCRT64 Toolchain:** Compiled with GCC 14+ for better modern Windows compatibility.
+* **Minimal Runtime:** Fixed "DLL Hell" by identifying and providing the exact set of required dependencies.
+
+## 📁 Repository Structure
+* `/include` - Header files for Vosk-API integration.
+* `/lib` - `libvosk.dll` and its essential runtime dependencies.
+* `/src` - Example source code (`test_vosk.c`).
+* `/bin` - Pre-compiled `test_vosk.exe` for immediate verification.
+
+## 🛠 Required DLLs (Minimal Set)
+To run applications built with this library, ensure the following files are in your executable's directory:
+1. `libvosk.dll`
+2. `libstdc++-6.dll`
+3. `libwinpthread-1.dll`
+4. `libgcc_s_seh-1.dll`
+
+## 🔨 Build Instruction (MSYS2 UCRT64)
+If you want to recompile the example:
+```bash
+gcc src/test_vosk.c -I./include -L./lib -lvosk -o bin/test_vosk.exe
+📝 Performance Note
+This build was verified to be independent of other toolchain paths (like STM32CubeIDE or MinGW-w64), ensuring stable performance in isolated environments.
+##################
 🏆 Описание
 
 Данный репозиторий содержит «Золотой слой» (патчи и скрипты), необходимый для сборки полностью статического ядра Kaldi и монолитной libvosk.dll в среде MSYS2 UCRT64 (Windows 11). Решение исключает зависимости от libgfortran, libgomp и прочих runtime-библиотек MSYS2.
