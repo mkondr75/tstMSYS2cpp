@@ -1,0 +1,61 @@
+# generated with cmake/gen_cmake_skeleton.py, DO NOT MODIFY.
+set(PUBLIC_HEADERS
+    biglm-faster-decoder.h
+    decodable-mapped.h
+    decodable-matrix.h
+    decodable-sum.h
+    decoder-wrappers.h
+    faster-decoder.h
+    grammar-fst.h
+    lattice-biglm-faster-decoder.h
+    lattice-faster-decoder.h
+    lattice-faster-online-decoder.h
+    lattice-incremental-decoder.h
+    lattice-incremental-online-decoder.h
+    lattice-simple-decoder.h
+    simple-decoder.h
+    training-graph-compiler.h
+)
+
+add_library(kaldi-decoder
+    decodable-matrix.cc
+    decoder-wrappers.cc
+    faster-decoder.cc
+    grammar-fst.cc
+    lattice-faster-decoder.cc
+    lattice-faster-online-decoder.cc
+    lattice-incremental-decoder.cc
+    lattice-incremental-online-decoder.cc
+    lattice-simple-decoder.cc
+    simple-decoder.cc
+    training-graph-compiler.cc
+)
+
+target_include_directories(kaldi-decoder PUBLIC 
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
+     $<INSTALL_INTERFACE:include/kaldi>
+)
+
+target_link_libraries(kaldi-decoder PUBLIC
+    kaldi-lat
+    kaldi-fstext
+    kaldi-hmm
+    kaldi-transform
+    kaldi-gmm
+    kaldi-tree
+    kaldi-util
+    kaldi-matrix
+    kaldi-base
+    -lcblas
+    -llapack
+)
+
+
+install(TARGETS kaldi-decoder
+    EXPORT kaldi-targets
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT kaldi
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT kaldi
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT kaldi
+)
+install(FILES ${PUBLIC_HEADERS} DESTINATION include/kaldi/decoder COMPONENT kaldi)
+

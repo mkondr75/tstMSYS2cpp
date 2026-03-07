@@ -1,0 +1,226 @@
+ Сборка:
+ cd C:/msys64/home/maxko/dev/vscprj/vosk/vosk-api/build
+ rm -rf *
+ cmake .. -G "MinGW Makefiles"
+ mingw32-make -j1 > build.log 2>&1
+
+анализ:
+grep "undefined reference" build.log > undef.log
+
+sed 's/.*undefined reference to //' undef.log \
+| sort \
+| uniq > undef_unique.lo
+ 
+......для калди  ranlib kaldi_arch/*.a
+
+maxko@MAX_NOTE UCRT64 ~/dev/vscprj/vosk/vosk-api/build
+$ cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/msys64/ucrt64/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (3.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/msys64/home/maxko/dev/vscprj/vosk/vosk-api/build
+
+maxko@MAX_NOTE UCRT64 ~/dev/vscprj/vosk/vosk-api/build
+$ mingw32-make -j1 > build.log 2>&1
+
+контроль 
+ls -l libvosk.dll
+
+новый CMakeLists.txt
+cmake_minimum_required(VERSION 3.16)
+project(vosk-api LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 1. Флаги компиляции (ABI соответствие и оптимизация)
+add_compile_options(
+    -O3
+    -Wa,-mbig-obj
+    -fpermissive
+    -DHAVE_OPENBLAS
+    -D_FILE_OFFSET_BITS=64
+)
+
+# 2. Пути включения
+include_directories(
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src
+    C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/include
+    C:/msys64/ucrt64/include
+    C:/msys64/ucrt64/include/openblas
+)
+
+# 3. Таргет библиотеки
+add_library(vosk SHARED
+    src/language_model.cc
+    src/model.cc
+    src/recognizer.cc
+    src/spk_model.cc
+    src/postprocessor.cc
+    src/vosk_api.cc
+    vosk.def
+)
+
+target_compile_definitions(vosk PRIVATE VOSK_EXPORTS)
+
+# 4. Линковка (Интеграция статического OpenBLAS)
+target_link_libraries(vosk PRIVATE
+    -Wl,--whole-archive
+
+    # Расширения OpenFST
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/extensions/lookahead/.libs/libfstlookahead.a"
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/extensions/ngram/.libs/libfstngram.a"
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/extensions/far/.libs/libfstfar.a"
+
+    # Kaldi (19 линий в нисходящем порядке)
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-online2.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-rnnlm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-lm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-chain.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-nnet3.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-nnet2.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-ivector.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-cudamatrix.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-decoder.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-lat.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-hmm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-gmm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-fstext.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-transform.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-feat.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-tree.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-matrix.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-util.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-base.a
+    
+    -Wl,--no-whole-archive
+
+    # Базовый OpenFST
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/lib/.libs/libfst.a"
+
+    # Секция статической математики (Вшиваем OpenBLAS и зависимости)
+    "C:/msys64/ucrt64/lib/libopenblas.a"
+    -Wl,-Bstatic
+    -lgfortran
+    -lquadmath
+    -lwinpthread
+    -Wl,-Bdynamic
+    -ldl
+)
+
+# 5. Опции стабильности и автономности
+target_link_options(vosk PRIVATE
+    -static-libgcc
+    -static-libstdc++
+    -Wl,--exclude-libs,ALL
+    -Wl,--enable-auto-import
+)
+
+# 6. Секция установки
+install(TARGETS vosk RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+install(FILES src/vosk_api.h DESTINATION include)
+
+итого 400+ libopenblas.a(cblas_saxpy.c.obj):(.text+0x92): undefined reference to 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\
+cmake_minimum_required(VERSION 3.16)
+project(vosk-api LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 1. Флаги компиляции (ABI соответствие и оптимизация)
+add_compile_options(
+    -O3
+    -Wa,-mbig-obj
+    -fpermissive
+    -DHAVE_OPENBLAS
+    -D_FILE_OFFSET_BITS=64
+)
+
+# 2. Пути включения
+include_directories(
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src
+    C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/include
+    C:/msys64/ucrt64/include
+    C:/msys64/ucrt64/include/openblas
+)
+
+# 3. Таргет библиотеки
+add_library(vosk SHARED
+    src/language_model.cc
+    src/model.cc
+    src/recognizer.cc
+    src/spk_model.cc
+    src/postprocessor.cc
+    src/vosk_api.cc
+    vosk.def
+)
+
+target_compile_definitions(vosk PRIVATE VOSK_EXPORTS)
+
+# 4. Линковка (Максимальный набор для статики)
+target_link_libraries(vosk PRIVATE
+    -Wl,--whole-archive
+    # Расширения OpenFST
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/extensions/lookahead/.libs/libfstlookahead.a"
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/extensions/ngram/.libs/libfstngram.a"
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/extensions/far/.libs/libfstfar.a"
+
+    # Kaldi (19 линий)
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-online2.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-rnnlm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-lm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-chain.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-nnet3.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-nnet2.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-ivector.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-cudamatrix.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-decoder.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-lat.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-hmm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-gmm.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-fstext.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-transform.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-feat.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-tree.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-matrix.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-util.a
+    C:/msys64/home/maxko/dev/vscprj/kaldi/src/kaldi_arch/kaldi-base.a
+    -Wl,--no-whole-archive
+
+    # Базовый OpenFST
+    "C:/msys64/home/maxko/dev/vscprj/kaldi/tools/openfst/src/lib/.libs/libfst.a"
+
+    # СЕКЦИЯ РАЗРЕШЕНИЯ ЗАВИСИМОСТЕЙ
+    -Wl,--start-group
+    "C:/msys64/ucrt64/lib/libopenblas.a"
+    gomp        # Для OpenMP (ошибки omp_*)
+    dl          # Для загрузки плагинов (ошибки dlopen)
+    gfortran
+    quadmath
+    m
+    pthread
+    kernel32
+    advapi32
+    user32
+    -Wl,--end-group
+)
+
+# 5. Опции автономности
+target_link_options(vosk PRIVATE
+    -static-libgcc
+    -static-libstdc++
+    -Wl,--exclude-libs,ALL
+    -Wl,--enable-auto-import
+)
+
+# 6. Секция установки
+install(TARGETS vosk RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+install(FILES src/vosk_api.h DESTINATION include)
+\\\\\\\\\\\\\\без ошибок 
+
